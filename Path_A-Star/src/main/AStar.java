@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class AStar {
@@ -8,7 +9,6 @@ public class AStar {
 		Node[][] nodeList = nodeGrid;
 		ArrayList<Node> openList = new ArrayList<Node>();
 		ArrayList<Node> closedList = new ArrayList<Node>();
-		
 
 		start.f = 0;
 		openList.add(start);
@@ -29,42 +29,60 @@ public class AStar {
 					openList.remove(i);
 			}
 
-			if (nodeList[q.x - 1][q.y - 1] != q.parent) {
-				nodeList[q.x - 1][q.y - 1].parent = q;
-				successor.add(nodeList[q.x - 1][q.y - 1]);
+			if ((q.x - 1) >= 0 && (q.y - 1) >= 0) {
+				if (nodeList[q.x - 1][q.y - 1] != q.parent) {
+					nodeList[q.x - 1][q.y - 1].parent = q;
+					successor.add(nodeList[q.x - 1][q.y - 1]);
+				}
 			}
-			if (nodeList[q.x][q.y - 1] != q.parent) {
-				nodeList[q.x][q.y - 1].parent = q;
-				successor.add(nodeList[q.x][q.y - 1]);
+			if ((q.y - 1) >= 0) {
+				if (nodeList[q.x][q.y - 1] != q.parent) {
+					nodeList[q.x][q.y - 1].parent = q;
+					successor.add(nodeList[q.x][q.y - 1]);
+				}
 			}
-			if (nodeList[q.x + 1][q.y - 1] != q.parent) {
-				nodeList[q.x + 1][q.y - 1].parent = q;
-				successor.add(nodeList[q.x + 1][q.y - 1]);
+			if ((q.x + 1) < nodeList.length && (q.y - 1) >= 0) {
+				if (nodeList[q.x + 1][q.y - 1] != q.parent) {
+					nodeList[q.x + 1][q.y - 1].parent = q;
+					successor.add(nodeList[q.x + 1][q.y - 1]);
+				}
 			}
-			if (nodeList[q.x - 1][q.y] != q.parent) {
-				nodeList[q.x - 1][q.y].parent = q;
-				successor.add(nodeList[q.x - 1][q.y]);
+			if ((q.x - 1) >= 0) {
+				if (nodeList[q.x - 1][q.y] != q.parent) {
+					nodeList[q.x - 1][q.y].parent = q;
+					successor.add(nodeList[q.x - 1][q.y]);
+				}
 			}
-			if (nodeList[q.x + 1][q.y] != q.parent) {
-				nodeList[q.x + 1][q.y].parent = q;
-				successor.add(nodeList[q.x + 1][q.y]);
+			if ((q.x + 1) < nodeList.length) {
+				if (nodeList[q.x + 1][q.y] != q.parent) {
+					nodeList[q.x + 1][q.y].parent = q;
+					successor.add(nodeList[q.x + 1][q.y]);
+				}
 			}
-			if (nodeList[q.x - 1][q.y + 1] != q.parent) {
-				nodeList[q.x - 1][q.y + 1].parent = q;
-				successor.add(nodeList[q.x - 1][q.y + 1]);
+			if ((q.x - 1) >= 0 && (q.y + 1) < nodeList[0].length) {
+				if (nodeList[q.x - 1][q.y + 1] != q.parent) {
+					nodeList[q.x - 1][q.y + 1].parent = q;
+					successor.add(nodeList[q.x - 1][q.y + 1]);
+				}
 			}
-			if (nodeList[q.x][q.y + 1] != q.parent) {
-				nodeList[q.x][q.y + 1].parent = q;
-				successor.add(nodeList[q.x][q.y + 1]);
+			if ((q.y + 1) < nodeList[0].length) {
+				if (nodeList[q.x][q.y + 1] != q.parent) {
+					nodeList[q.x][q.y + 1].parent = q;
+					successor.add(nodeList[q.x][q.y + 1]);
+				}
 			}
-			if (nodeList[q.x + 1][q.y + 1] != q.parent) {
-				nodeList[q.x + 1][q.y + 1].parent = q;
-				successor.add(nodeList[q.x + 1][q.y + 1]);
+			if ((q.x + 1) < nodeList.length && (q.y + 1) < nodeList[0].length) {
+				if (nodeList[q.x + 1][q.y + 1] != q.parent) {
+					nodeList[q.x + 1][q.y + 1].parent = q;
+					successor.add(nodeList[q.x + 1][q.y + 1]);
+				}
 			}
 
 			for (Node node : successor) {
 				System.out.println("foreach");
 				if (node == destination)
+					
+					
 					return destination;
 				node.g = q.g + node.resistance;
 				float dx = Math.abs(destination.x - node.x);
@@ -87,10 +105,11 @@ public class AStar {
 					openList.add(node);
 				}
 			}
-
+			// q.setBackground(Color.RED);
 			closedList.add(q);
 		}
+		System.out.println("A-Star ende");
 		// TODO: Falls das Ziel nicht erreicht wurde
-		return new Node(-1,-1, 1);
+		return new Node(-1, -1, 1);
 	}
 }
