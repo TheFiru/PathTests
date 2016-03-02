@@ -109,7 +109,7 @@ public class AStar {
 			closedList.add(q);
 		}
 		System.out.println("A-Star ende");
-		// TODO: Falls das Ziel nicht erreicht wurde
+		// TODO: Falls das Ziel nicht erreicht wurded
 		return new Node(-1, -1, 1);
 	}
 }
