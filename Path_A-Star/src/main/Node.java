@@ -22,7 +22,7 @@ public class Node extends JPanel {
 	}
 	
 	public void drawPath(){
-		setBackground(Color.RED);
+		this.setBackground(Color.RED);
 		if(parent != null) parent.drawPath();
 	}
 

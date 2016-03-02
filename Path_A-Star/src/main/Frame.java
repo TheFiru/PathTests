@@ -70,9 +70,9 @@ public class Frame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == this.b1){
-			n = astar.getPath(nodeList.getNodeList(), nodeList.getNode(1, 15), nodeList.getNode(16, 18));
-			n.printCoor();
-			n.drawPath();
+			n = astar.getPath(nodeList.getNodeList(), nodeList.getNode(10, 1), nodeList.getNode(10, 18));
+			//n.printCoor();
+			//n.drawPath();
 		}
 	}
 	

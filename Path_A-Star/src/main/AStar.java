@@ -15,7 +15,7 @@ public class AStar {
 
 		while (!openList.isEmpty()) {
 			ArrayList<Node> successor = new ArrayList<Node>();
-			System.out.println("While");
+			//System.out.println("While");
 			Node q = null;
 			for (int i = 0; i < openList.size(); i++) {
 				if (q == null)
@@ -35,7 +35,7 @@ public class AStar {
 					successor.add(nodeList[q.x - 1][q.y - 1]);
 				}
 			}
-			if ((q.y - 1) >= 0) {
+			if ((q.y - 1) >= 0 && !(q.isWall)) {
 				if (nodeList[q.x][q.y - 1] != q.parent) {
 					nodeList[q.x][q.y - 1].parent = q;
 					successor.add(nodeList[q.x][q.y - 1]);
@@ -47,7 +47,7 @@ public class AStar {
 					successor.add(nodeList[q.x + 1][q.y - 1]);
 				}
 			}
-			if ((q.x - 1) >= 0) {
+			if ((q.x - 1) >= 0 && !(q.isWall)) {
 				if (nodeList[q.x - 1][q.y] != q.parent) {
 					nodeList[q.x - 1][q.y].parent = q;
 					successor.add(nodeList[q.x - 1][q.y]);
@@ -79,7 +79,7 @@ public class AStar {
 			}
 
 			for (Node node : successor) {
-				System.out.println("foreach");
+				//System.out.println("foreach");
 				if (node == destination)
 					
 					
@@ -105,8 +105,15 @@ public class AStar {
 					openList.add(node);
 				}
 			}
-			// q.setBackground(Color.RED);
+			System.out.println(q.x + " : " + q.y);
+			//q.setBackground(Color.RED);
 			closedList.add(q);
+			/*try {
+				Thread.sleep(250);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
 		}
 		System.out.println("A-Star ende");
 		// TODO: Falls das Ziel nicht erreicht wurded
