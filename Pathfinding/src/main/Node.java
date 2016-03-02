@@ -2,6 +2,9 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JComponent;
 import javax.swing.JPanel;
@@ -11,12 +14,43 @@ public class Node {
 
 	private JPanel panel;
 	int x, y;
+	float g, h, f;
+	boolean isWall = false;
+	
 	
 	public Node(){
 		panel = new JPanel();
 		panel.setBorder(new LineBorder(Color.BLACK));
+		
+		panel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e){
+				if(e.getModifiers() == MouseEvent.BUTTON1_MASK){
+					if(panel != null){
+						panel.setBackground(Color.RED);
+						isWall = true;
+					}
+					
+				}
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e){
+				if(panel != null){
+					panel.setBackground(Color.RED);
+					isWall = true;
+				}
+			}
+		});
 	}
 	
+	public void resetNode(){
+		this.isWall = false;
+		if(panel != null){
+			panel.setBackground(null);
+		}
+	}
+		
 	public void setSize(int size){
 		if(panel != null){
 			panel.setPreferredSize(new Dimension(size, size));

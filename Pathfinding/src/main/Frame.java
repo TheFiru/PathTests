@@ -19,6 +19,7 @@ public class Frame implements ActionListener{
 
 	JButton b1 = new JButton("Draw Path");
 	JButton b2 = new JButton("Clear");
+	JButton b3 = new JButton("Test");
 	
 	public Frame() {
 		frame = new JFrame("Pathfinding");
@@ -39,9 +40,11 @@ public class Frame implements ActionListener{
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		b1.addActionListener(this);
 		b2.addActionListener(this);
+		b3.addActionListener(this);
 		
 		panel.add(b1);
 		panel.add(b2);
+		panel.add(b3);
 		
 		return panel;
 	}
@@ -71,9 +74,18 @@ public class Frame implements ActionListener{
 		if(e.getSource() == this.b1){
 			//Do Stuff
 			algo.getPath(nodeList.getNodeList(), nodeList.getNode(1, 1), nodeList.getNode(10, 10));
+			
 		}
 		else if(e.getSource() == this.b2){
 			//Do Stuff
+			for (int i = 0; i < nodeList.getNodeList().length; i++) {
+				for (int j = 0; j < nodeList.getNodeList().length; j++) {
+					nodeList.getNode(i, j).resetNode();
+				}
+			}
+		}
+		else if(e.getSource() == this.b3){
+
 		}
 	}
 

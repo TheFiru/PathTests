@@ -21,11 +21,12 @@ public class Frame extends JFrame implements ActionListener {
 	JButton b1 = new JButton("Draw Path");
 	JButton b2 = new JButton("Clear");
 
-	public Frame(int width, int hight) {
+	public Frame(int width, int height) {
 		Container pane = getContentPane();
 		
+		
 		pane.setLayout(new BorderLayout());
-		pane.add(getNodes(width, hight), BorderLayout.CENTER);
+		pane.add(getNodes(width, height), BorderLayout.CENTER);
 		pane.add(getButtons(), BorderLayout.EAST);
 		
 		this.setTitle("test");
