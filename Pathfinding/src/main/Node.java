@@ -27,7 +27,7 @@ public class Node {
 			public void mouseEntered(MouseEvent e){
 				if(e.getModifiers() == MouseEvent.BUTTON1_MASK){
 					if(panel != null){
-						panel.setBackground(Color.RED);
+						panel.setBackground(Color.GRAY);
 						isWall = true;
 					}
 					
@@ -37,7 +37,7 @@ public class Node {
 			@Override
 			public void mousePressed(MouseEvent e){
 				if(panel != null){
-					panel.setBackground(Color.RED);
+					panel.setBackground(Color.GRAY);
 					isWall = true;
 				}
 			}
