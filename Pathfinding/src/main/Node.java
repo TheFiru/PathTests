@@ -13,9 +13,10 @@ import javax.swing.border.LineBorder;
 public class Node {
 
 	private JPanel panel;
-	int x, y;
-	float g, h, f;
+	int x = -1, y = -1;
+	float g = 0, h = 0, f = 0;
 	boolean isWall = false;
+	Node parent;
 	
 	
 	public Node(){
@@ -77,5 +78,9 @@ public class Node {
 			System.out.println("GetPanel: panel == null");
 			return null;
 		}
+	}
+	
+	public void setParent(Node n){
+		this.parent = n;
 	}
 }

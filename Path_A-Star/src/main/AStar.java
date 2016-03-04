@@ -84,6 +84,8 @@ public class AStar {
 					
 					
 					return destination;
+				
+				
 				node.g = q.g + node.resistance;
 				float dx = Math.abs(destination.x - node.x);
 				float dy = Math.abs(destination.y - node.y);
