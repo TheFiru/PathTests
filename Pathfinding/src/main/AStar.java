@@ -62,6 +62,7 @@ public class AStar{
 				
 				if(node == destination) {
 					destination.setColor(Color.GREEN);
+					destination.printPath();
 					return;
 				}
 				//System.out.println("Successor: " + node.x + " : " + node.y );

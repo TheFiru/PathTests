@@ -12,11 +12,11 @@ import javax.swing.border.LineBorder;
 
 public class Node {
 
-	private JPanel panel;
+	private JPanel panel = null;
 	int x = -1, y = -1;
-	float g = 0, h = 0, f = 0;
+	float g = 9999, h = 0, f = 0;
 	boolean isWall = false;
-	Node parent;
+	Node parent = null;
 	
 	
 	public Node(){
@@ -44,6 +44,14 @@ public class Node {
 			}
 		});
 	}
+	
+	
+	public void printPath(){
+		this.setColor(Color.GREEN);
+		if(this.parent != null)
+		this.parent.printPath();
+	}
+	
 	
 	public void resetNode(){
 		this.isWall = false;

@@ -74,6 +74,7 @@ public class Frame implements ActionListener {
 			// Do Stuff
 			AStar a = new AStar(nodeList, nodeList.getNode(1, 1), nodeList.getNode(10, 10));
 			a.run();
+			
 
 		} else if (e.getSource() == this.b2) {
 			// Do Stuff
