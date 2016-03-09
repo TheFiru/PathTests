@@ -40,20 +40,20 @@ public class AStar{
 					q = openList.get(i);
 				if (q != null && openList.get(i).f < q.f)
 					q = openList.get(i);
-				System.out.println(openList.get(i).x + " : " + openList.get(i).y);
+				//System.out.println(openList.get(i).x + " : " + openList.get(i).y);
 			}
 
 			for (int i = 0; i < openList.size(); i++) {
 				//System.out.println(openList.get(i).x + " : " + openList.get(i).y);
 				if (openList.get(i).x == q.x && openList.get(i).y == q.y){
-					System.out.println("Removed: " + openList.get(i).x + " : " + openList.get(i).y);
+					//System.out.println("Removed: " + openList.get(i).x + " : " + openList.get(i).y);
 					openList.remove(i);
 				}
 			}
 			
-			for (int i = 0; i < openList.size(); i++) {
+			/*for (int i = 0; i < openList.size(); i++) {
 				System.out.println(openList.get(i).x + " : " + openList.get(i).y);
-			}
+			}*/
 			//System.out.println("Currently investigating: " + q.x + " : " + q.y);
 			
 			getNeighbors(q.x, q.y);
@@ -64,7 +64,7 @@ public class AStar{
 					destination.setColor(Color.GREEN);
 					return;
 				}
-				System.out.println("Successor: " + node.x + " : " + node.y );
+				//System.out.println("Successor: " + node.x + " : " + node.y );
 				node.g = q.g + 1;
 				float dx = Math.abs(destination.x - node.x);
 				float dy = Math.abs(destination.y - node.y);
@@ -76,7 +76,7 @@ public class AStar{
 				for (int i = 0; i < openList.size(); i++) {
 					if (openList.get(i).x == node.x && openList.get(i).y == node.y && openList.get(i).f < node.f)
 						tmp = true;
-					System.out.println(i);
+					//System.out.println(i);
 				}
 
 				for (int i = 0; i < closedList.size(); i++) {
